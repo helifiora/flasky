@@ -1,25 +1,28 @@
-from ctypes import Union
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, url_for, redirect
 from wtforms import Form, StringField, SubmitField
 from wtforms.validators import DataRequired
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'my super key'
 
 
 class NameForm(Form):
     name = StringField('Name', [DataRequired('Name is required!')])
 
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    name = None
+@app.route('/', methods=['GET'])
+def get_index():
+    return render_template('index.html', name=session.get('name'))
 
-    if request.method == 'POST':
-        form = NameForm(request.form)
-        if form.validate():
-            name = request.form['name']
 
-    return render_template('index.html', name=name)
+@app.route('/', methods=['POST'])
+def post_index():
+    form = NameForm(request.form)
+    if form.validate():
+        name = request.form['name']
+        session['name'] = name
+
+    return redirect(url_for('get_index'))
 
 
 @app.route('/user/<string:name>')
