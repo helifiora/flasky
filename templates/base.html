@@ -17,6 +17,16 @@
 
 <body>
 
+    {% if get_flashed_messages() %}
+    <div class="alert alert-secondary mb-0 text-center">
+        {% for message in get_flashed_messages() %}
+        <b>
+            {{ message }}
+        </b>
+        {% endfor %}
+    </div>
+    {% endif %}
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="/">Flasky</a>
