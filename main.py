@@ -1,14 +1,14 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
 def index():
-    return '<h1>Hello World!</h1>'
+    return render_template('index.html')
 
 
 def user(name: str):
-    return f'<h2>Hello {name}</h2>'
+    return render_template('user.html', name=name)
 
 
 app.add_url_rule('/', 'index', index)
