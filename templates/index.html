@@ -1,1 +1,25 @@
 {% extends 'base.html' %}
+
+{% block content %}
+
+<div class="my-5">
+    <h1>
+        Hello
+        {% if name %}
+        {{ name }}
+        {% else %}
+        Stranger
+        {% endif %}
+    </h1>
+</div>
+
+
+<form method="POST">
+    <div class="mb-3">
+        <label class="form-label" for="name">What is yout name?</label>
+        <input class="form-control" type="text" name="name" id="name" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock content %}

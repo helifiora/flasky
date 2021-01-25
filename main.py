@@ -1,12 +1,28 @@
-from flask import Flask, render_template
+from ctypes import Union
+from flask import Flask, render_template, request
+from wtforms import Form, StringField, SubmitField
+from wtforms.validators import DataRequired
 
 app = Flask(__name__)
 
 
+class NameForm(Form):
+    name = StringField('Name', [DataRequired('Name is required!')])
+
+
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html')
+    name = None
+
+    if request.method == 'POST':
+        form = NameForm(request.form)
+        if form.validate():
+            name = request.form['name']
+
+    return render_template('index.html', name=name)
 
 
+@app.route('/user/<string:name>')
 def user(name: str):
     return render_template('user.html', name=name)
 
@@ -19,7 +35,3 @@ def page_not_found(e):
 @app.errorhandler(500)
 def internal_server_error(e):
     return render_template('500.html')
-
-
-app.add_url_rule('/', 'index', index)
-app.add_url_rule('/user/<string:name>', 'user', user)
