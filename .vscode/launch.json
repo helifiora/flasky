@@ -10,9 +10,10 @@
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP": "main.py",
+                "FLASK_APP": "flasky.py",
                 "FLASK_ENV": "development",
-                "FLASK_DEBUG": "1"
+                "FLASK_DEBUG": "1",
+                "SQLALCHEMY_DATABASE_URI": "postgresql://postgres:postgres@localhost/flasky"
             },
             "args": [
                 "run"
