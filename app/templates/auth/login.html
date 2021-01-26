@@ -15,9 +15,14 @@
         <input name="password" type="password" class="form-control" id="passwordid" required>
     </div>
     <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="loggedInId">
-        <label name="logged" class="form-check-label" for="loggedInId">Keep me logged in</label>
+        <input name="logged" type="checkbox" class="form-check-input" id="loggedInId">
+        <label class="form-check-label" for="loggedInId">Keep me logged in</label>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+<p>
+    New User?
+    <a href="{{ url_for('auth.register') }}">Click here to register</a>
+</p>
 {% endblock content %}

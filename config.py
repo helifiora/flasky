@@ -34,7 +34,7 @@ class Config(ABC):
 class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get(
-        'DEV_DATABASE_URL', 'sqlite:///dev.db')
+        'DEV_DATABASE_URL', 'postgresql://postgres:postgres@localhost/flasky')
 
 
 class TestingConfig(Config):

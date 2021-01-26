@@ -5,8 +5,8 @@
 <div class="my-5">
     <h1>
         Hello
-        {% if name %}
-        {{ name }}
+        {% if current_user.is_authenticated %}
+        {{ current_user.username }}
         {% else %}
         Stranger
         {% endif %}
