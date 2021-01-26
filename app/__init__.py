@@ -15,7 +15,9 @@ def create_app(config_name: str):
     app.config.from_object(config)
 
     from .main import main as mainbp
+    from .auth import auth as authbp
     app.register_blueprint(mainbp)
+    app.register_blueprint(authbp)
 
     config.init_app(app)
     mail.init_app(app)
