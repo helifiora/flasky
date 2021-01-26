@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>
+    Login
+</h1>
+
+<form method="POST">
+    <div class="mb-3">
+        <label for="emailid" class="form-label">Email</label>
+        <input name="email" type="email" class="form-control" id="emailid" required>
+    </div>
+    <div class="mb-3">
+        <label for="passwordid" class="form-label">Password</label>
+        <input name="password" type="password" class="form-control" id="passwordid" required>
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="loggedInId">
+        <label name="logged" class="form-check-label" for="loggedInId">Keep me logged in</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock content %}
