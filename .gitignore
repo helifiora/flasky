@@ -2,13 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
-.history/
+
 # C extensions
 *.so
 
@@ -115,6 +109,14 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+.vscode/*
+
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
 
 # Spyder project settings
 .spyderproject
@@ -133,3 +135,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.vscode/launch.json
